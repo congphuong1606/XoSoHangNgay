@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">GuuJoup</string>
+    <string name="col1">Kết quả</string>
+    <string name="col2">KQSX</string>
+    <string name="col3">...</string>
+    <string name="col4">...</string>
+    <string name="col5">...</string>
+    <string name="col6">...</string>
+    <string name="col7">...</string>
+    <string name="col8">...</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

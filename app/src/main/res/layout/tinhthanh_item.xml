@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/logo_tinh_thanh"
+        android:src="@drawable/mien_bac"
+        android:layout_width="50dp"
+        android:layout_centerVertical="true"
+        android:layout_height="50dp" />
+
+    <TextView
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/logo_tinh_thanh"
+        android:id="@+id/name_tinh_thanh"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hà Nội"
+        android:padding="10dp"
+        android:textSize="20sp"
+        android:textColor="#0C6BB6" />
+
+
+</RelativeLayout>
