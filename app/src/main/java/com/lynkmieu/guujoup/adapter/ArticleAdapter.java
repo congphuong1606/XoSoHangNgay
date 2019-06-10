@@ -32,7 +32,7 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ArticleH
 
     @Override
     public ArticleHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.article_item,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.soicau_item,parent,false);
         return new ArticleHolder(view);
     }
 
@@ -42,11 +42,6 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ArticleH
         holder.tvTitle.setText(article.getTitle());
         Glide.with(activity)
                 .load(article.getThumnail())
-                .asBitmap()
-                .atMost()
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .animate(android.R.anim.fade_in)
-                .approximate()
                 .into(holder.imgThumnal);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

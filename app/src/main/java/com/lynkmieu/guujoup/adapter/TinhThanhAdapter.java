@@ -7,12 +7,15 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.lynkmieu.guujoup.R;
+import com.lynkmieu.guujoup.event.OnClickTinhThanh;
+import com.lynkmieu.guujoup.model.SoMo;
 import com.lynkmieu.guujoup.model.TinhThanh;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class TinhThanhAdapter extends RecyclerView.Adapter<TinhThanhAdapter.MyViewHolder> {
-
+    OnClickTinhThanh onClickTinhThanh;
     private ArrayList<TinhThanh> tinhthanhs;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
@@ -21,13 +24,20 @@ public class TinhThanhAdapter extends RecyclerView.Adapter<TinhThanhAdapter.MyVi
         public MyViewHolder(View view) {
             super(view);
             title = (TextView) view.findViewById(R.id.name_tinh_thanh);
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                            onClickTinhThanh.click(tinhthanhs.get(getAdapterPosition()));
+                }
+            });
 
         }
     }
 
 
-    public TinhThanhAdapter(ArrayList<TinhThanh> tinhthanhs) {
+    public TinhThanhAdapter(ArrayList<TinhThanh> tinhthanhs, OnClickTinhThanh onClickTinhThanh) {
         this.tinhthanhs = tinhthanhs;
+        onClickTinhThanh=onClickTinhThanh;
     }
 
     @Override
@@ -42,6 +52,22 @@ public class TinhThanhAdapter extends RecyclerView.Adapter<TinhThanhAdapter.MyVi
     public void onBindViewHolder(MyViewHolder holder, int position) {
         TinhThanh tinhThanh = tinhthanhs.get(position);
         holder.title.setText(tinhThanh.getTen());
+
+    }
+
+    public void filter(String charText, ArrayList<TinhThanh> listSeach) {
+        charText = charText.toLowerCase(Locale.getDefault());
+        tinhthanhs.clear();
+        if (charText.length() == 0) {
+            tinhthanhs.addAll(listSeach);
+        } else {
+            for (TinhThanh l : listSeach) {
+                if (l.getTen().toLowerCase(Locale.getDefault()).contains(charText)) {
+                    tinhthanhs.add(l);
+                }
+            }
+        }
+        notifyDataSetChanged();
 
     }
 

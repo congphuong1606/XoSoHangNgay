@@ -77,7 +77,6 @@ public class MienBacFragment extends Fragment {
         webView.getSettings().setJavaScriptEnabled(true);
         webView.setOnTouchListener(null);
         webView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
-        webView = (WebView) view.findViewById(R.id.webView);
         btnkino = (Button) view.findViewById(R.id.kinoday);
         btnkiyo = (Button) view.findViewById(R.id.kiyoday);
         btnasita = (Button) view.findViewById(R.id.asitaday);
