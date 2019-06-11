@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.lynkmieu.guujoup">
+    package="com.phuongcong.xosohay">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -13,7 +13,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.ChiTietSoiCauActivity"></activity>
+        <activity android:name=".activity.VietLott4DActivity"></activity>
+        <activity android:name=".activity.CityDetailActivity" />
+        <activity android:name=".activity.ChiTietSoiCauActivity" />
         <activity android:name=".activity.SoiCauActivity" />
         <activity android:name=".activity.ThayPhanActivity" />
         <activity android:name=".activity.SoDepHomNay" />
@@ -33,6 +35,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.DetailArticleActivity" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

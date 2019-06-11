@@ -10,44 +10,10 @@
     tools:context=".activity.MainActivity">
 
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="2">
-
-
-        <FrameLayout
-
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <ImageView
-
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="8dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/soxo_cgdl_min" />
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/frame3" />
-
-            <ImageView
-                android:id="@+id/btn_tinhthanh"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/frame" />
-
-        </FrameLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="2">
-
+        android:layout_weight="2.1">
 
         <FrameLayout
 
@@ -74,163 +40,492 @@
                 android:src="@drawable/frame" />
 
         </FrameLayout>
-    </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="13dp"
+            android:layout_marginRight="50dp"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+
+                    android:layout_marginRight="10dp"
+                    android:layout_toLeftOf="@id/cv_bac"
+                    android:fontFamily="@font/aclonica"
+                    android:text="B"
+                    android:textStyle="bold" />
+
+                <cn.iwgang.countdownview.CountdownView
+                    android:id="@+id/cv_bac"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="3dp"
+                    app:isHideTimeBackground="false"
+                    app:isShowHour="true"
+                    app:isShowMillisecond="true"
+                    app:isShowMinute="true"
+                    app:isShowSecond="true"
+                    app:isShowTimeBgBorder="false"
+                    app:isTimeTextBold="true"
+                    app:suffixGravity="center"
+                    app:suffixTextColor="#530E51"
+                    app:suffixTextSize="14sp"
+                    app:timeBgColor="#D0D4D6"
+                    app:timeBgRadius="4dp"
+                    app:timeTextColor="#FF0000"
+                    app:timeTextSize="6sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:layout_toLeftOf="@id/cv_trung"
+                    android:fontFamily="@font/aclonica"
+                    android:text="T"
+                    android:textStyle="bold" />
+
+                <cn.iwgang.countdownview.CountdownView
+                    android:id="@+id/cv_trung"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="2dp"
+                    app:isHideTimeBackground="false"
+                    app:isShowHour="true"
+                    app:isShowMillisecond="true"
+                    app:isShowMinute="true"
+                    app:isShowSecond="true"
+                    app:isShowTimeBgBorder="false"
+                    app:isTimeTextBold="true"
+                    app:suffixGravity="center"
+                    app:suffixTextColor="#530E51"
+                    app:suffixTextSize="14sp"
+                    app:timeBgColor="#D0D4D6"
+                    app:timeBgRadius="4dp"
+                    app:timeTextColor="#FF0000"
+                    app:timeTextSize="6sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:layout_toLeftOf="@id/cv_nam"
+                    android:fontFamily="@font/aclonica"
+                    android:text="N"
+                    android:textStyle="bold" />
+
+                <cn.iwgang.countdownview.CountdownView
+                    android:id="@+id/cv_nam"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="2dp"
+                    app:isHideTimeBackground="false"
+                    app:isShowHour="true"
+                    app:isShowMillisecond="true"
+                    app:isShowMinute="true"
+                    app:isShowSecond="true"
+                    app:isShowTimeBgBorder="false"
+                    app:isTimeTextBold="true"
+                    app:suffixGravity="center"
+                    app:suffixTextColor="#530E51"
+                    app:suffixTextSize="14sp"
+                    app:timeBgColor="#D0D4D6"
+                    app:timeBgRadius="4dp"
+                    app:timeTextColor="#FF0000"
+                    app:timeTextSize="6sp" />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1.5"
-        android:background="#fff"
-        android:orientation="horizontal"
+        android:layout_weight="2.3">
+
+
+        <FrameLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="8dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/tinhthanh" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/frame3" />
+
+            <ImageView
+                android:id="@+id/btn_tinhthanh"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/frame" />
+
+        </FrameLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="6dp"
+        android:layout_weight="1.1"
+        android:background="#F7F7F7"
+        android:orientation="vertical"
         android:weightSum="2">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#F7F7F7"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="#F7F7F7"
+                    android:fontFamily="@font/aclonica"
+                    android:text="Vietlott"
+                    android:textColor="#292929"
+                    android:textSize="16sp" />
+
+                <cn.iwgang.countdownview.CountdownView
+                    android:id="@+id/cv_countdownView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    app:isHideTimeBackground="false"
+                    app:isShowHour="true"
+                    app:isShowMillisecond="true"
+                    app:isShowMinute="true"
+                    app:isShowSecond="true"
+                    app:isShowTimeBgBorder="false"
+                    app:isTimeTextBold="true"
+                    app:suffixGravity="center"
+                    app:suffixTextColor="#530E51"
+                    app:suffixTextSize="20sp"
+                    app:timeBgColor="#3A427C"
+                    app:timeBgRadius="6dp"
+                    app:timeTextColor="#FFFFFF"
+                    app:timeTextSize="12sp" />
+            </RelativeLayout>
+
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rcv2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#F7F7F7">
+
+            </android.support.v7.widget.RecyclerView>
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:orientation="vertical"
-            android:weightSum="2">
+            android:background="#F7F7F7"
+            android:orientation="vertical">
 
-            <LinearLayout
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:background="#F7F7F7"
+                android:fontFamily="@font/aclonica"
+                android:text="XoSo Voucher"
+                android:textColor="#292929"
+                android:textSize="16sp" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rcv1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1">
+                android:background="#F7F7F7">
 
-                <FrameLayout
-
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageView
-
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:padding="8dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/soicau" />
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/frame3" />
-
-                    <ImageView
-                        android:id="@+id/btn_soicau"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/frame2" />
-
-                </FrameLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
-
-                <FrameLayout
-
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageView
-
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:padding="8dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/thayphan" />
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/frame3" />
-
-                    <ImageView
-                        android:id="@+id/btn_thay_phan"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/frame2" />
-
-                </FrameLayout>
-            </LinearLayout>
-
+            </android.support.v7.widget.RecyclerView>
         </LinearLayout>
 
 
-        <LinearLayout
+        <!--<HorizontalScrollView
+
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:weightSum="2">
+            android:layout_height="match_parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1">
+                android:background="#fff"
+                android:orientation="horizontal"
+                android:weightSum="2">
 
-                <FrameLayout
 
+                <LinearLayout
+                    android:id="@+id/layout1"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.45"
+                    android:orientation="vertical"
+                    android:weightSum="2">
 
-                    <ImageView
-
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:padding="8dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/so_mo" />
+                        android:layout_weight="1">
 
-                    <ImageView
+                        <FrameLayout
+
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:padding="8dp"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/soicau" />
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/frame3" />
+
+                            <ImageView
+                                android:id="@+id/btn_soicau"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/frame2" />
+
+                        </FrameLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/frame3" />
+                        android:layout_weight="1">
 
-                    <ImageView
-                        android:id="@+id/btn_so_mo"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/frame2" />
+                        <FrameLayout
 
-                </FrameLayout>
-            </LinearLayout>
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
+                            <ImageView
 
-                <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:padding="8dp"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/thayphan" />
 
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/frame3" />
+
+                            <ImageView
+                                android:id="@+id/btn_thay_phan"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/frame2" />
+
+                        </FrameLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/layout2"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.45"
+                    android:orientation="vertical"
+                    android:weightSum="2">
 
-                    <ImageView
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:padding="8dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/consohomnay" />
+                        android:layout_weight="1">
 
-                    <ImageView
+                        <FrameLayout
+
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:padding="8dp"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/so_mo" />
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/frame3" />
+
+                            <ImageView
+                                android:id="@+id/btn_so_mo"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/frame2" />
+
+                        </FrameLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/frame3" />
+                        android:layout_weight="1">
 
-                    <ImageView
-                        android:id="@+id/btn_so_homnay"
+                        <FrameLayout
+
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:padding="8dp"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/consohomnay" />
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/frame3" />
+
+                            <ImageView
+                                android:id="@+id/btn_so_homnay"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/frame2" />
+
+                        </FrameLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layout3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.45"
+                    android:orientation="vertical"
+                    android:weightSum="2">
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/frame2" />
+                        android:layout_weight="1">
 
-                </FrameLayout>
+                        <FrameLayout
+
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:padding="8dp"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/so_mo" />
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/frame3" />
+
+                            <ImageView
+                                android:id="@+id/btn_dientoan"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/frame2" />
+
+                        </FrameLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <FrameLayout
+
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:padding="8dp"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/consohomnay" />
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/frame3" />
+
+                            <ImageView
+                                android:id="@+id/btn_tienich"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/frame2" />
+
+                        </FrameLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
             </LinearLayout>
-
-        </LinearLayout>
+        </HorizontalScrollView>-->
     </LinearLayout>
 
 

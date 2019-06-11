@@ -4,9 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.phuongcong.xosohay.activity.DetailArticleActivity">
+    tools:context="com.phuongcong.xosohay.activity.VietLott4DActivity">
     <WebView
+        android:id="@+id/webViewMax4D"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/wv_detail"/>
+        />
 </android.support.constraint.ConstraintLayout>
