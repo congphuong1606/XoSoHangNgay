@@ -8,11 +8,8 @@ import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.Display;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 
 import com.phuongcong.xosohay.R;
 import com.phuongcong.xosohay.adapter.MenuItemAdapter;
@@ -87,18 +84,18 @@ public class MainActivity extends AppCompatActivity implements OnClickMenuItem {
                 startActivity(new Intent(MainActivity.this, SoDepHomNay.class));
                 break;
             case "Max4d":
-                intent =new Intent(MainActivity.this, VietLott4DActivity.class);
-                intent.putExtra("type",menuItem);
+                intent = new Intent(MainActivity.this, VietLott4DActivity.class);
+                intent.putExtra("type", menuItem);
                 startActivity(intent);
                 break;
             case "Mega645":
-                intent =new Intent(MainActivity.this, VietLott4DActivity.class);
-                intent.putExtra("type",menuItem);
+                intent = new Intent(MainActivity.this, VietLott4DActivity.class);
+                intent.putExtra("type", menuItem);
                 startActivity(intent);
                 break;
             case "Power655":
-                intent =new Intent(MainActivity.this, VietLott4DActivity.class);
-                intent.putExtra("type",menuItem);
+                intent = new Intent(MainActivity.this, VietLott4DActivity.class);
+                intent.putExtra("type", menuItem);
                 startActivity(intent);
                 break;
             case "Max3d":
@@ -188,10 +185,10 @@ public class MainActivity extends AppCompatActivity implements OnClickMenuItem {
         cvB = (CountdownView) findViewById(R.id.cv_bac);
         cvN = (CountdownView) findViewById(R.id.cv_nam);
         cvT = (CountdownView) findViewById(R.id.cv_trung);
-        mCvCountdownView.start(22*60*60*1000);
-        cvB.start(20*60*30*1000);
-        cvN.start(15*45*34*1000);
-        cvT.start(18*30*25*1000);
+        mCvCountdownView.start(22 * 60 * 60 * 1000);
+        cvB.start(20 * 60 * 30 * 1000);
+        cvN.start(15 * 45 * 34 * 1000);
+        cvT.start(18 * 30 * 25 * 1000);
     }
 
 }

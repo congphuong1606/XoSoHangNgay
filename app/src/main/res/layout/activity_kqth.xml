@@ -10,9 +10,9 @@
     <EditText
         android:id="@+id/edt_search_tinh_thanh"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="40dp"
         android:layout_margin="10dp"
-        android:background="@drawable/button_border">
+        android:background="@drawable/button">
 
     </EditText>
 
