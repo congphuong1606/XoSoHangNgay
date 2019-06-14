@@ -17,20 +17,19 @@ import com.phuongcong.xosohay.adapter.SomoAdapter;
 import com.phuongcong.xosohay.event.OnClickMenuItem;
 import com.phuongcong.xosohay.model.ItemMenu;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Locale;
 
 import cn.iwgang.countdownview.CountdownView;
 
 public class MainActivity extends AppCompatActivity implements OnClickMenuItem {
     ImageView btnKQTH;
     private ImageView btnKQSX;
-    /*    private ImageView btnSoMo;
-        private ImageView btnSoHomnay;
-        private ImageView btnThayPhan;
-        private ImageView btnSoiCau;
-        private LinearLayout layout1;
-        private LinearLayout layout2;
-        private LinearLayout layout3;*/
+    private long timeCurent;
+    private String dayCurent;
     private RecyclerView rcv1;
     private RecyclerView rcv2;
     private ArrayList<ItemMenu> menu1s = new ArrayList<>();
@@ -46,10 +45,19 @@ public class MainActivity extends AppCompatActivity implements OnClickMenuItem {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        timeCurent = System.currentTimeMillis();
+        dayCurent = getCurrentDay();
         findID();
         setAdapter();
         setMenuIntoScreen();
         setOnClick();
+    }
+
+    public String getCurrentDay() {
+        SimpleDateFormat dayFormat = new SimpleDateFormat("EEEE", Locale.getDefault());
+        Calendar calendar = Calendar.getInstance();
+        return dayFormat.format(calendar.getTime());
+
     }
 
     private void setMenuIntoScreen() {
