@@ -21,6 +21,7 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 
 import cn.iwgang.countdownview.CountdownView;
@@ -28,7 +29,7 @@ import cn.iwgang.countdownview.CountdownView;
 public class MainActivity extends AppCompatActivity implements OnClickMenuItem {
     ImageView btnKQTH;
     private ImageView btnKQSX;
-    private long timeCurent;
+    private String timeCurent;
     private String dayCurent;
     private RecyclerView rcv1;
     private RecyclerView rcv2;
@@ -45,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements OnClickMenuItem {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        timeCurent = System.currentTimeMillis();
+        timeCurent = getCurrentHour();
         dayCurent = getCurrentDay();
         findID();
         setAdapter();
@@ -54,11 +55,21 @@ public class MainActivity extends AppCompatActivity implements OnClickMenuItem {
     }
 
     public String getCurrentDay() {
-        SimpleDateFormat dayFormat = new SimpleDateFormat("EEEE", Locale.getDefault());
+       /* SimpleDateFormat dayFormat = new SimpleDateFormat("EEEE", Locale.getDefault());
         Calendar calendar = Calendar.getInstance();
-        return dayFormat.format(calendar.getTime());
-
+        return dayFormat.format(calendar.getTime());*/
+        Date mydate = new Date(System.currentTimeMillis());
+        SimpleDateFormat dateFormat = new SimpleDateFormat("EEEE");
+        String hour = dateFormat.format(mydate);
+        return hour;
     }
+    public String getCurrentHour() {
+        Date mydate = new Date(System.currentTimeMillis());
+        SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm");
+        String hour = dateFormat.format(mydate);
+        return hour;
+    }
+
 
     private void setMenuIntoScreen() {
         menu1s.add(new ItemMenu("Dự đoán kết quả", R.drawable.soicau, "SoiCau"));
