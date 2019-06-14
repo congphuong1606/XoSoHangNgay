@@ -12,13 +12,17 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.phuongcong.xosohay.R;
 import com.phuongcong.xosohay.activity.DetailArticleActivity;
+import com.phuongcong.xosohay.activity.KQTHActivity;
+import com.phuongcong.xosohay.activity.MainActivity;
 import com.phuongcong.xosohay.event.OnClickMenuItem;
 import com.phuongcong.xosohay.model.Article;
 import com.phuongcong.xosohay.model.ItemMenu;
+import com.phuongcong.xosohay.utils.NetworkUtils;
 
 import java.util.ArrayList;
 
@@ -77,7 +81,12 @@ public class MenuItemAdapter extends RecyclerView.Adapter<MenuItemAdapter.Articl
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    onClickMenuItem.click(itemMenus.get(getAdapterPosition()).getClassName());
+                    if (NetworkUtils.isOnline(activity)) {
+                        onClickMenuItem.click(itemMenus.get(getAdapterPosition()).getClassName());
+                    } else {
+                        Toast.makeText(activity, "Kiểm tra kết nối!", Toast.LENGTH_LONG).show();
+                    }
+
                 }
             });
         }

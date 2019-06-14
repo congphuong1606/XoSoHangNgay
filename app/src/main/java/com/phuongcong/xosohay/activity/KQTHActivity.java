@@ -47,7 +47,7 @@ public class KQTHActivity extends AppCompatActivity implements OnClickTinhThanh 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         editText = (EditText) findViewById(R.id.edt_search_tinh_thanh);
 
-        mAdapter = new TinhThanhAdapter(TINHTHANHS, this);
+        mAdapter = new TinhThanhAdapter(TINHTHANHS, this, this);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());

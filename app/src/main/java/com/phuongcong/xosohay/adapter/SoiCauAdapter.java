@@ -7,11 +7,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.phuongcong.xosohay.R;
 import com.phuongcong.xosohay.event.OnClickSoiCau;
 import com.phuongcong.xosohay.model.SoiCau;
+import com.phuongcong.xosohay.utils.NetworkUtils;
 
 import java.util.ArrayList;
 
@@ -34,7 +36,12 @@ public class SoiCauAdapter extends RecyclerView.Adapter<SoiCauAdapter.MyViewHold
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    onClickSoiCau.click(soiCaus.get(getAdapterPosition()).getLink());
+                    if (NetworkUtils.isOnline(activity)) {
+                        onClickSoiCau.click(soiCaus.get(getAdapterPosition()).getLink());
+                    } else {
+                        Toast.makeText(activity, "Kiểm tra kết nối!", Toast.LENGTH_LONG).show();
+                    }
+
                 }
             });
 

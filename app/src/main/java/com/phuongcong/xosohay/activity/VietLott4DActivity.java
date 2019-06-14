@@ -114,7 +114,7 @@ public class VietLott4DActivity extends AppCompatActivity {
                 content = document.html().toString();
                 content = content.replaceAll("xoso.me", "xo so hay");
                 content = content.replaceAll("<a href=", "<a id=");
-                content = content.replace("\"/css/css/style.min.css?v=1556946124\"", "\"https://xoso.me/css/css/style.min.css?v=1556946124\"");
+                content = content.replace("\"/css/css/style.min.css?v=", "\"https://xoso.me/css/css/style.min.css?v=");
 
             } catch (IOException e) {
                 e.printStackTrace();

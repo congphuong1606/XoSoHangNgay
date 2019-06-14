@@ -1,19 +1,24 @@
 package com.phuongcong.xosohay.adapter;
 
+import android.app.Activity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.phuongcong.xosohay.R;
 import com.phuongcong.xosohay.event.OnClickTinhThanh;
 import com.phuongcong.xosohay.model.TinhThanh;
+import com.phuongcong.xosohay.utils.NetworkUtils;
 
 import java.util.ArrayList;
 import java.util.Locale;
 
 public class TinhThanhAdapter extends RecyclerView.Adapter<TinhThanhAdapter.MyViewHolder> {
+    private final Activity activity;
+
     OnClickTinhThanh onClickTinhThanh;
     private ArrayList<TinhThanh> tinhthanhs;
 
@@ -26,7 +31,12 @@ public class TinhThanhAdapter extends RecyclerView.Adapter<TinhThanhAdapter.MyVi
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                            onClickTinhThanh.click(tinhthanhs.get(getAdapterPosition()));
+                    if (NetworkUtils.isOnline(activity)) {
+                        onClickTinhThanh.click(tinhthanhs.get(getAdapterPosition()));
+                    } else {
+                        Toast.makeText(activity, "Kiểm tra kết nối!", Toast.LENGTH_LONG).show();
+                    }
+
                 }
             });
 
@@ -34,9 +44,10 @@ public class TinhThanhAdapter extends RecyclerView.Adapter<TinhThanhAdapter.MyVi
     }
 
 
-    public TinhThanhAdapter(ArrayList<TinhThanh> tinhthanhs, OnClickTinhThanh onClickTinhThanh) {
+    public TinhThanhAdapter(ArrayList<TinhThanh> tinhthanhs, OnClickTinhThanh onClickTinhThanh, Activity activity) {
         this.tinhthanhs = tinhthanhs;
         this.onClickTinhThanh=onClickTinhThanh;
+        this.activity=activity;
     }
 
     @Override

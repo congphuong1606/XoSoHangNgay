@@ -10,12 +10,14 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.phuongcong.xosohay.R;
 import com.phuongcong.xosohay.adapter.MenuItemAdapter;
 import com.phuongcong.xosohay.adapter.SomoAdapter;
 import com.phuongcong.xosohay.event.OnClickMenuItem;
 import com.phuongcong.xosohay.model.ItemMenu;
+import com.phuongcong.xosohay.utils.NetworkUtils;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -46,12 +48,65 @@ public class MainActivity extends AppCompatActivity implements OnClickMenuItem {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        timeCurent = getCurrentHour();
-        dayCurent = getCurrentDay();
         findID();
         setAdapter();
         setMenuIntoScreen();
         setOnClick();
+        setCV();
+    }
+
+    private void setCV() {
+        timeCurent = getCurrentHour();
+        dayCurent = getCurrentDay();
+        int zi = Integer.parseInt(timeCurent.split(":")[0]);
+        int pun = Integer.parseInt(timeCurent.split(":")[1]);
+        int zipun = Integer.parseInt(zi + "" + pun);
+        long tBac = 0;
+        if (zipun < 1815) {
+            tBac = ((18 - zi) * 60 + 15 - pun) * 60 * 1000;
+        }
+        if (zipun >= 1830) {
+            tBac = ((18 * 60 + 15) + ((24 - zi) * 60 - pun)) * 60 * 1000;
+        }
+        cvB.start(tBac);
+        long tNam = 0;
+        if (zipun < 1620) {
+            tNam = ((16 - zi) * 60 + 20 - pun) * 60 * 1000;
+        }
+        if (zipun >= 1635) {
+            tNam = ((16 * 60 + 20) + ((24 - zi) * 60 - pun)) * 60 * 1000;
+        }
+        cvN.start(tNam);
+        long tTrung = 0;
+        if (zipun < 1715) {
+            tTrung = ((17 - zi) * 60 + 15 - pun) * 60 * 1000;
+        }
+        if (zipun >= 1730) {
+            tTrung = ((17 * 60 + 15) + ((24 - zi) * 60 - pun)) * 60 * 1000;
+        }
+        cvT.start(tTrung);
+
+        long tVietlott = 0;
+        if (zipun < 1745) {
+            tVietlott = ((17 - zi) * 60 + 45 - pun) * 60 * 1000;
+        }
+        if (zipun >= 1750) {
+            tVietlott = ((17 * 60 + 45) + ((24 - zi) * 60 - pun)) * 60 * 1000;
+        }
+        mCvCountdownView.start(tVietlott);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        timeCurent = getCurrentHour();
+        dayCurent = getCurrentDay();
+        setCV();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 
     public String getCurrentDay() {
@@ -63,6 +118,7 @@ public class MainActivity extends AppCompatActivity implements OnClickMenuItem {
         String hour = dateFormat.format(mydate);
         return hour;
     }
+
     public String getCurrentHour() {
         Date mydate = new Date(System.currentTimeMillis());
         SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm");
@@ -73,8 +129,8 @@ public class MainActivity extends AppCompatActivity implements OnClickMenuItem {
 
     private void setMenuIntoScreen() {
         menu1s.add(new ItemMenu("Dự đoán kết quả", R.drawable.soicau, "SoiCau"));
-        menu1s.add(new ItemMenu("Một giấc ngủ ngon", R.drawable.so_mo, "SoMo"));
-        menu1s.add(new ItemMenu("Thày đã bảo rồi", R.drawable.thayphan, "ThayPhan"));
+        menu1s.add(new ItemMenu("Giấc mơ của bạn", R.drawable.so_mo, "SoMo"));
+        menu1s.add(new ItemMenu("Thầy đã bảo rồi", R.drawable.thayphan, "ThayPhan"));
         menu1s.add(new ItemMenu("Con số hôm nay", R.drawable.consohomnay, "SoDep"));
         menu2s.add(new ItemMenu("Vietlott – Max 4D", R.drawable.max4d, "Max4d"));
         menu2s.add(new ItemMenu("Vietlott – Mega 6/45", R.drawable.mega645, "Mega645"));
@@ -88,6 +144,7 @@ public class MainActivity extends AppCompatActivity implements OnClickMenuItem {
 
     @Override
     public void click(String menuItem) {
+
         Intent intent = null;
         switch (menuItem) {
             case "SoiCau":
@@ -100,7 +157,8 @@ public class MainActivity extends AppCompatActivity implements OnClickMenuItem {
                 startActivity(new Intent(MainActivity.this, ThayPhanActivity.class));
                 break;
             case "SoDep":
-                startActivity(new Intent(MainActivity.this, SoDepHomNay.class));
+                Toast.makeText(MainActivity.this, "Chức năng đăng được phát triển!", Toast.LENGTH_LONG).show();
+                //startActivity(new Intent(MainActivity.this, SoDepHomNay.class));
                 break;
             case "Max4d":
                 intent = new Intent(MainActivity.this, VietLott4DActivity.class);
@@ -118,6 +176,7 @@ public class MainActivity extends AppCompatActivity implements OnClickMenuItem {
                 startActivity(intent);
                 break;
             case "Max3d":
+                Toast.makeText(MainActivity.this, "Chức năng đăng được phát triển!", Toast.LENGTH_LONG).show();
                 break;
 
         }
@@ -141,15 +200,23 @@ public class MainActivity extends AppCompatActivity implements OnClickMenuItem {
         btnKQTH.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, KQTHActivity.class);
-                startActivity(intent);
+                if (NetworkUtils.isOnline(getApplicationContext())) {
+                    Intent intent = new Intent(MainActivity.this, KQTHActivity.class);
+                    startActivity(intent);
+                }else {
+                    Toast.makeText(getApplicationContext(),"Kiểm tra kết nối!",Toast.LENGTH_LONG).show();
+                }
             }
         });
         btnKQSX.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (NetworkUtils.isOnline(getApplicationContext())) {
                 Intent intent = new Intent(MainActivity.this, SXKQActivity.class);
                 startActivity(intent);
+                }else {
+                    Toast.makeText(getApplicationContext(),"Kiểm tra kết nối!",Toast.LENGTH_LONG).show();
+                }
             }
         });
       /*  btnSoMo.setOnClickListener(new View.OnClickListener() {
@@ -204,10 +271,6 @@ public class MainActivity extends AppCompatActivity implements OnClickMenuItem {
         cvB = (CountdownView) findViewById(R.id.cv_bac);
         cvN = (CountdownView) findViewById(R.id.cv_nam);
         cvT = (CountdownView) findViewById(R.id.cv_trung);
-        mCvCountdownView.start(22 * 60 * 60 * 1000);
-        cvB.start(20 * 60 * 30 * 1000);
-        cvN.start(15 * 45 * 34 * 1000);
-        cvT.start(18 * 30 * 25 * 1000);
     }
 
 }

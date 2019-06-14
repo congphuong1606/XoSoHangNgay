@@ -92,7 +92,7 @@ public class CityDetailActivity extends AppCompatActivity {
                 content = document.html().toString();
                 content = content.replaceAll("xoso.me", "xo so hay");
                 content = content.replaceAll("<a class=\"title-a\" href=", "<a class=\"title-a\" id=");
-                content = content.replace("\"/css/css/style.min.css?v=1556946124\"", "\"https://xoso.me/css/css/style.min.css?v=1556946124\"");
+                content = content.replace("\"/css/css/style.min.css?v=", "\"https://xoso.me/css/css/style.min.css?v=");
 
             } catch (IOException e) {
                 e.printStackTrace();
