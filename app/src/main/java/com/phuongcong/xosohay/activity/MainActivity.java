@@ -157,8 +157,8 @@ public class MainActivity extends AppCompatActivity implements OnClickMenuItem {
                 startActivity(new Intent(MainActivity.this, ThayPhanActivity.class));
                 break;
             case "SoDep":
-                Toast.makeText(MainActivity.this, "Chức năng đăng được phát triển!", Toast.LENGTH_LONG).show();
-                //startActivity(new Intent(MainActivity.this, SoDepHomNay.class));
+                //Toast.makeText(MainActivity.this, "Chức năng đăng được phát triển!", Toast.LENGTH_LONG).show();
+              startActivity(new Intent(MainActivity.this, SoDepHomNay.class));
                 break;
             case "Max4d":
                 intent = new Intent(MainActivity.this, VietLott4DActivity.class);
